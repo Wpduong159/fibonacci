@@ -2,10 +2,15 @@
 
 # William Duong, Nathan Whatley
 # CPSC 335-01
-# 14 February 2022
+# 14 March 2022
 
-# Code for ...
+# Code for finding the Fibonacci sequence using two different algorithmic
+# approaches (Exhaustive Pattern, Golden Ratio Approach)
 import math
+
+
+exSequence = [0]
+
 
 def user_in():
 	while(True):
@@ -68,4 +73,24 @@ def goldenrat(n, p):
 	return result_string
 
 
-user_in()
+def exhaustive(n):
+	"""Fibonacci sequence using Exhaustive Pattern"""
+	global exSequence
+
+	if len(exSequence) == 1:
+		exSequence.append(1)
+	else:
+		exSequence.append(sum(exSequence[n-1:n+2]))
+
+	while len(exSequence) != 16:
+		exhaustive(n+1)
+
+
+if __name__ == "__main__":
+	"""Main function"""
+
+	# Using the recursive exhaustive pattern method
+	exhaustive(0)
+	print("Part 1A (Recursive Exhaustive Pattern): {}\n".format(exSequence[-1]))
+  
+  user_in()

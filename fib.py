@@ -27,20 +27,45 @@ def user_in():
 		else:
 			print("N must be a non floating point positive integer")
 
+	goldenrat(n,p)
+
 
 def goldenrat(n, p):
 	#1 + 5^.5 / 2 == 1.61803
 	#f of p == 
 	fisq = math.sqrt(5)
 
+	#Equation 3
 	numerator = (1 + fisq) ** p - (1 - fisq) ** p
-	#print(numerator)
 	denominator = (2**p) * (fisq)
 
-	result = numerator / denominator
-	#print(result)
-	final_n = result * ((1 + fisq) / 2)**(n-p)
+	f_p = numerator / denominator
+	f_p = int(f_p)
+	# Equation 4
+	final_n = f_p * ((1 + fisq) / 2)**(n-p)
 
-	return final_n
+	#Equation 5
+	f_n_1 = f_p * ((1+ fisq) / 2)
 
-print(goldenrat(2, 1))
+	ratio_a = final_n/f_n_1
+
+	fiba = list()
+	for x in range(21):
+		numerator = (1 + fisq) ** x - (1 - fisq) ** x
+		denominator = (2**x) * (fisq)
+
+		result_x = numerator / denominator
+		result_x = int(result_x)
+
+		fiba.append(result_x)
+	
+	result_string = "The result of n = {} and p = {} is:\n".format(n,p)
+	result_string += "Equation 3  = {}, Equation 4 = {}, Equation 5 = {}\n".format(f_p, final_n, f_n_1)
+	result_string += "The ratio between fn/fp should be approx to the Golden Ratio: {}\n".format(ratio_a)
+	result_string += "The first 20 terms using EQ 3: \n"
+	result_string += "{}".format(fiba)
+
+	return result_string
+
+
+user_in()

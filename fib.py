@@ -32,7 +32,7 @@ def user_in():
 
 def goldenrat(n, p):
 	#1 + 5^.5 / 2 == 1.61803
-	#f of p == 
+	
 	fisq = math.sqrt(5)
 
 	#Equation 3

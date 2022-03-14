@@ -13,6 +13,7 @@ exSequence = [0]
 
 
 def user_in():
+	"""This function gets the input from the user for Part B"""
 	while(True):
 
 		p = input("Enter p, a positive integer:")
@@ -36,6 +37,7 @@ def user_in():
 
 
 def goldenrat(n, p):
+	"""This function calculates 3 different equations involving Golden Ratio"""
 	#1 + 5^.5 / 2 == 1.61803
 	
 	fisq = math.sqrt(5)
@@ -92,5 +94,5 @@ if __name__ == "__main__":
 	# Using the recursive exhaustive pattern method
 	exhaustive(0)
 	print("Part 1A (Recursive Exhaustive Pattern): {}\n".format(exSequence[-1]))
-  
-  user_in()
+	
+	user_in()
